@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_map">
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="teeu.dgu_calorie_consumption_prediction.HomeFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_prediction"
+        android:name="teeu.dgu_calorie_consumption_prediction.PredictionFragment"
+        android:label="@string/title_prediction"
+        tools:layout="@layout/fragment_prediction" />
+
+    <fragment
+        android:id="@+id/navigation_timetable"
+        android:name="teeu.dgu_calorie_consumption_prediction.TimetableFragment"
+        android:label="@string/title_time_table"
+        tools:layout="@layout/fragment_timetable" />
+</navigation>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">DGU_Calorie_Consumption_Prediction</string>
+    <string name="title_map">DGU Map</string>
+    <string name="title_prediction">Prediction</string>
+    <string name="title_time_table">Timetable</string>
+    <string name="ok">OK</string>
+    <string name="prediction_time">예상시간</string>
+    <string name="distance">이동거리</string>
+    <string name="calorie">소모칼로리</string>
+    <string name="add">추가</string>
+    <string name="fri">금요일</string>
+    <string name="thu">목요일</string>
+    <string name="wed">수요일</string>
+    <string name="tue">화요일</string>
+    <string name="mon">월요일</string>
+</resources>
