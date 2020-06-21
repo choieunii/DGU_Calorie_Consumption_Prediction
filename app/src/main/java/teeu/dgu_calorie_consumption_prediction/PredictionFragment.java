@@ -54,7 +54,7 @@ public class PredictionFragment extends Fragment {
         mFriDistance = v.findViewById(R.id.prediction_distance_fri);
         mFriCalorie = v.findViewById(R.id.prediction_calorie_fri);
 
-        Repository repo = Repository.getInstance();
+        Repository repo = Repository.getInstance(getContext());
         setTextMon(repo);
         setTextTue(repo);
         setTextWed(repo);
@@ -69,12 +69,23 @@ public class PredictionFragment extends Fragment {
     private void setTextMon(Repository repo) {
         List<TimeTableItem> list = repo.getMonList();
         Map<String, ResultData> map = repo.getSrcToDestMap();
-        String start = "충무로역";
+//        String start = "충무로역";
+        String start = null;
+
+        int i = 0; //시간표 아이템 갯수
+
         double distance = 0;
         int calorie = 0;
 
         for(TimeTableItem item : list) {
             String spot = item.getSpot();
+
+            i++;
+            if(i == 1) {
+                start = spot;
+                continue;
+            }
+
             String key = start + '_' + spot;
             if(map.get(key) != null) {
                 distance += map.get(key).getDistance();
@@ -84,25 +95,36 @@ public class PredictionFragment extends Fragment {
             start = spot;
         }
 
-        String key = start + '_' + "충무로역";
-        if(map.get(key) != null) {
-            distance += map.get(key).getDistance();
-            calorie += map.get(key).getCalorie();
-        }
+//        String key = start + '_' + "충무로역";
+//        if(map.get(key) != null) {
+//            distance += map.get(key).getDistance();
+//            calorie += map.get(key).getCalorie();
+//        }
 
-        mMonDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0)); //소수점 3자리까지 출력
-        mMonCalorie.setText(String.valueOf(calorie));
+        mMonDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0) + "km"); //소수점 3자리까지 출력
+        mMonCalorie.setText(String.valueOf(calorie) + "kcal");
     }
 
     private void setTextTue(Repository repo) {
         List<TimeTableItem> list = repo.getTueList();
         Map<String, ResultData> map = repo.getSrcToDestMap();
-        String start = "충무로역";
+//        String start = "충무로역";
+        String start = null;
+
+        int i = 0; //시간표 아이템 갯수
+
         double distance = 0;
         int calorie = 0;
 
         for(TimeTableItem item : list) {
             String spot = item.getSpot();
+
+            i++;
+            if(i == 1) {
+                start = spot;
+                continue;
+            }
+
             String key = start + '_' + spot;
             if(map.get(key) != null) {
                 distance += map.get(key).getDistance();
@@ -112,25 +134,36 @@ public class PredictionFragment extends Fragment {
             start = spot;
         }
 
-        String key = start + '_' + "충무로역";
-        if(map.get(key) != null) {
-            distance += map.get(key).getDistance();
-            calorie += map.get(key).getCalorie();
-        }
+//        String key = start + '_' + "충무로역";
+//        if(map.get(key) != null) {
+//            distance += map.get(key).getDistance();
+//            calorie += map.get(key).getCalorie();
+//        }
 
-        mTueDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0));
-        mTueCalorie.setText(String.valueOf(calorie));
+        mTueDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0) + "km");
+        mTueCalorie.setText(String.valueOf(calorie) + "kcal");
     }
 
     private void setTextWed(Repository repo) {
         List<TimeTableItem> list = repo.getWedList();
         Map<String, ResultData> map = repo.getSrcToDestMap();
-        String start = "충무로역";
+        //        String start = "충무로역";
+        String start = null;
+
+        int i = 0; //시간표 아이템 갯수
+
         double distance = 0;
         int calorie = 0;
 
         for(TimeTableItem item : list) {
             String spot = item.getSpot();
+
+            i++;
+            if(i == 1) {
+                start = spot;
+                continue;
+            }
+
             String key = start + '_' + spot;
             if(map.get(key) != null) {
                 distance += map.get(key).getDistance();
@@ -140,25 +173,36 @@ public class PredictionFragment extends Fragment {
             start = spot;
         }
 
-        String key = start + '_' + "충무로역";
-        if(map.get(key) != null) {
-            distance += map.get(key).getDistance();
-            calorie += map.get(key).getCalorie();
-        }
+//        String key = start + '_' + "충무로역";
+//        if(map.get(key) != null) {
+//            distance += map.get(key).getDistance();
+//            calorie += map.get(key).getCalorie();
+//        }
 
-        mWedDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0));
-        mWedCalorie.setText(String.valueOf(calorie));
+        mWedDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0) + "km");
+        mWedCalorie.setText(String.valueOf(calorie) + "kcal");
     }
 
     private void setTextThu(Repository repo) {
         List<TimeTableItem> list = repo.getThuList();
         Map<String, ResultData> map = repo.getSrcToDestMap();
-        String start = "충무로역";
+        //        String start = "충무로역";
+        String start = null;
+
+        int i = 0; //시간표 아이템 갯수
+
         double distance = 0;
         int calorie = 0;
 
         for(TimeTableItem item : list) {
             String spot = item.getSpot();
+
+            i++;
+            if(i == 1) {
+                start = spot;
+                continue;
+            }
+
             String key = start + '_' + spot;
             if(map.get(key) != null) {
                 distance += map.get(key).getDistance();
@@ -168,25 +212,36 @@ public class PredictionFragment extends Fragment {
             start = spot;
         }
 
-        String key = start + '_' + "충무로역";
-        if(map.get(key) != null) {
-            distance += map.get(key).getDistance();
-            calorie += map.get(key).getCalorie();
-        }
+//        String key = start + '_' + "충무로역";
+//        if(map.get(key) != null) {
+//            distance += map.get(key).getDistance();
+//            calorie += map.get(key).getCalorie();
+//        }
 
-        mThuDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0));
-        mThuCalorie.setText(String.valueOf(calorie));
+        mThuDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0) + "km");
+        mThuCalorie.setText(String.valueOf(calorie) + "kcal");
     }
 
     private void setTextFri(Repository repo) {
         List<TimeTableItem> list = repo.getFriList();
         Map<String, ResultData> map = repo.getSrcToDestMap();
-        String start = "충무로역";
+        //        String start = "충무로역";
+        String start = null;
+
+        int i = 0; //시간표 아이템 갯수
+
         double distance = 0;
         int calorie = 0;
 
         for(TimeTableItem item : list) {
             String spot = item.getSpot();
+
+            i++;
+            if(i == 1) {
+                start = spot;
+                continue;
+            }
+
             String key = start + '_' + spot;
             if(map.get(key) != null) {
                 distance += map.get(key).getDistance();
@@ -196,70 +251,13 @@ public class PredictionFragment extends Fragment {
             start = spot;
         }
 
-        String key = start + '_' + "충무로역";
-        if(map.get(key) != null) {
-            distance += map.get(key).getDistance();
-            calorie += map.get(key).getCalorie();
-        }
-
-        mFriDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0));
-        mFriCalorie.setText(String.valueOf(calorie));
-    }
-
-//    private void setText(List<TimeTableItem> list) {
-//        double[] distance = {0,0,0,0,0};
-//        int[] calorie = {0,0,0,0,0};
-//        Map<String, ResultData> map = Repository.getInstance().getSrcToDestMap();
-//        String start = "충무로역";
-//
-//        for(TimeTableItem item : list) {
-//            String day = item.getDay();
-//            String spot = item.getSpot();
-//            String key = start + '_' + spot;
-//            if(day.equals("월요일")) {
-//                if(map.get(key) != null) {
-//                    distance[0] += map.get(key).getDistance();
-//                    calorie[0] += map.get(key).getCalorie();
-//                }
-//
-//            } else if(day.equals("화요일")) {
-//                if(map.get(key) != null) {
-//                    distance[1] += map.get(key).getDistance();
-//                    calorie[1] += map.get(key).getCalorie();
-//                }
-//
-//            } else if(day.equals("수요일")) {
-//                if(map.get(key) != null) {
-//                    distance[2] += map.get(key).getDistance();
-//                    calorie[2] += map.get(key).getCalorie();
-//                }
-//            } else if(day.equals("목요일")) {
-//                if(map.get(key) != null) {
-//                    distance[3] += map.get(key).getDistance();
-//                    calorie[3] += map.get(key).getCalorie();
-//                }
-//            } else if(day.equals("금요일")) {
-//                if(map.get(key) != null) {
-//                    distance[4] += map.get(key).getDistance();
-//                    calorie[4] += map.get(key).getCalorie();
-//                }
-//            }
-//            start = spot;
+//        String key = start + '_' + "충무로역";
+//        if(map.get(key) != null) {
+//            distance += map.get(key).getDistance();
+//            calorie += map.get(key).getCalorie();
 //        }
-//
-//        mMonDistance.setText(String.valueOf(distance[0]));
-//        mMonCalorie.setText(String.valueOf(calorie[0]));
-//
-//        mTueDistance.setText(String.valueOf(distance[1]));
-//        mTueCalorie.setText(String.valueOf(calorie[1]));
-//
-//        mWedDistance.setText(String.valueOf(distance[2]));
-//        mWedCalorie.setText(String.valueOf(calorie[2]));
-//
-//        mThuDistance.setText(String.valueOf(distance[3]));
-//        mThuCalorie.setText(String.valueOf(calorie[3]));
-//
-//        mFriDistance.setText(String.valueOf(distance[4]));
-//        mFriCalorie.setText(String.valueOf(calorie[4]));
-//    }
+
+        mFriDistance.setText(String.valueOf(Math.round(distance * 1000.0) / 1000.0) + "km");
+        mFriCalorie.setText(String.valueOf(calorie) + "kcal");
+    }
 }

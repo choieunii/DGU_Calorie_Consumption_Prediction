@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class HomeFragment extends Fragment {
 
     private Button mButtonOk;
 
+    ImageView mMap;
+
     private String tempSrc;
     private String tempDest;
 
@@ -44,14 +47,15 @@ public class HomeFragment extends Fragment {
         mSrcSpinnerAdapter.clear();
         mDestSpinnerAdapter.clear();
 
-        mSrcSpinnerAdapter.addAll(Repository.getInstance().getSpotList());
-        mDestSpinnerAdapter.addAll(Repository.getInstance().getSpotList());
+        mSrcSpinnerAdapter.addAll(Repository.getInstance(getContext()).getSpotList());
+        mDestSpinnerAdapter.addAll(Repository.getInstance(getContext()).getSpotList());
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         mSrcSpinner = v.findViewById(R.id.spinner_src);
         mDestSpinner = v.findViewById(R.id.spinner_dest);
+        mMap = v.findViewById(R.id.imageView_map);
 
         mSrcSpinner.setAdapter(mSrcSpinnerAdapter);
         mDestSpinner.setAdapter(mDestSpinnerAdapter);
@@ -87,10 +91,17 @@ public class HomeFragment extends Fragment {
 
         mButtonOk.setOnClickListener(view -> {
             String key = tempSrc + '_' + tempDest;
-            Map<String, ResultData> map = Repository.getInstance().getSrcToDestMap();
+            Map<String, ResultData> map = Repository.getInstance(getContext()).getSrcToDestMap();
             ResultData resultData = map.get(key);
 
             if(resultData != null) {
+                if(key.equals("경영관_중앙도서관")) {
+                    mMap.setImageResource(R.drawable.ba_lib);
+                } else if(key.equals("후문_신공학관")) {
+                    mMap.setImageResource(R.drawable.back_newengineer);
+                } else {
+                    mMap.setImageResource(R.drawable.dgu_map);
+                }
                 String arrivalTime = resultData.getArrivalTime() + "분";
                 String distance = resultData.getDistance() + "km";
                 String calorie = resultData.getCalorie() + "kcal";

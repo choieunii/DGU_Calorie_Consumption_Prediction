@@ -59,9 +59,9 @@ public class TimetableFragment extends Fragment {
         mTimeSpinnerAdapter.clear();
         mSpotSpinnerAdapter.clear();
 
-        mDaySpinnerAdapter.addAll(Repository.getInstance().getDayList());
-        mTimeSpinnerAdapter.addAll(Repository.getInstance().getTimeList());
-        mSpotSpinnerAdapter.addAll(Repository.getInstance().getSpotList());
+        mDaySpinnerAdapter.addAll(Repository.getInstance(getContext()).getDayList());
+        mTimeSpinnerAdapter.addAll(Repository.getInstance(getContext()).getTimeList());
+        mSpotSpinnerAdapter.addAll(Repository.getInstance(getContext()).getSpotList());
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -121,7 +121,7 @@ public class TimetableFragment extends Fragment {
         mAddBtn = v.findViewById(R.id.btn_add_timetable);
 
         mAddBtn.setOnClickListener(view -> {
-            Repository repo = Repository.getInstance();
+            Repository repo = Repository.getInstance(getContext());
 //            List<TimeTableItem> list = repo.getTimeTableItemList();
 //            list.add(new TimeTableItem(tempDay, tempTime, tempSpot));
             addDayList(repo, tempDay, tempTime, tempSpot);
@@ -134,7 +134,7 @@ public class TimetableFragment extends Fragment {
     }
 
     private List<TimeTableItem> getSortList() {
-        Repository repo = Repository.getInstance();
+        Repository repo = Repository.getInstance(getContext());
         List<TimeTableItem> monList = repo.getMonList();
         Collections.sort(monList, (t1, t2) -> t1.getTime().compareTo(t2.getTime()));
 
@@ -249,7 +249,7 @@ public class TimetableFragment extends Fragment {
 
                         bd.setNegativeButton("취소", null).
                                 setPositiveButton("확인", (dialogInterface, which2) -> {
-                                    Repository repo = Repository.getInstance();
+                                    Repository repo = Repository.getInstance(getContext());
 //                                    List<TimeTableItem> list = repo.getTimeTableItemList();
                                     String tempDay = day.getText().toString();
                                     String tempTime = time.getText().toString();
@@ -266,7 +266,7 @@ public class TimetableFragment extends Fragment {
                                 }).create().show();
 
                     } else if (which == 1) { //삭제
-                        Repository repo = Repository.getInstance();
+                        Repository repo = Repository.getInstance(getContext());
 //                        List<TimeTableItem> list = repo.getTimeTableItemList();
 //                        list.remove(i);
                         removeDayList(repo,item.getDay(),item);
