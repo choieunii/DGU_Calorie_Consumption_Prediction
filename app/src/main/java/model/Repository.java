@@ -5,10 +5,13 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import util.RawFileReader;
+
+//import util.RawFileReader;
 
 public class Repository {
     private static Repository instance;
@@ -160,11 +163,11 @@ public class Repository {
 //        sSrcToDestMap.put("충무로역_경영관",new ResultData(10,0.57,54));
 //        sSrcToDestMap.put("충무로역_신공학관",new ResultData(7,0.4,39));
 //        sSrcToDestMap.put("신공학관_상록원",new ResultData(3,0.147,15));
-//
+
 //        sSrcToDestMap.put("경영관_경영관",new ResultData(0,0,0));
 //        sSrcToDestMap.put("경영관_과학관",new ResultData(6,0.399,35));
 //        sSrcToDestMap.put("경영관_대운동장",new ResultData(3,0.1995,18));
-//        sSrcToDestMap.put("경영관_동대입구",new ResultData(8,0.532,47));
+//        sSrcToDestMap.put("경영관_동대입구역",new ResultData(8,0.532,47));
 //        sSrcToDestMap.put("경영관_만해광장",new ResultData(6,0.399,35));
 //        sSrcToDestMap.put("경영관_명진관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("경영관_법학관",new ResultData(4,0.266,24));
@@ -186,7 +189,7 @@ public class Repository {
 //
 //        sSrcToDestMap.put("과학관_경영관",new ResultData(6,0.399,35));
 //        sSrcToDestMap.put("과학관_대운동장",new ResultData(3,0.1995,18));
-//        sSrcToDestMap.put("과학관_동대입구",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("과학관_동대입구역",new ResultData(11,0.7315,65));
 //        sSrcToDestMap.put("과학관_만해광장",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("과학관_명진관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("과학관_법학관",new ResultData(2,0.133,12));
@@ -209,7 +212,7 @@ public class Repository {
 //        sSrcToDestMap.put("대운동장_경영관",new ResultData(3,0.1995,18));
 //        sSrcToDestMap.put("대운동장_과학관",new ResultData(3,0.1995,18));
 //        sSrcToDestMap.put("대운동장_대운동장",new ResultData(0,0,0));
-//        sSrcToDestMap.put("대운동장_동대입구",new ResultData(8,0.532,47));
+//        sSrcToDestMap.put("대운동장_동대입구역",new ResultData(8,0.532,47));
 //        sSrcToDestMap.put("대운동장_만해광장",new ResultData(6,0.399,35));
 //        sSrcToDestMap.put("대운동장_명진관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("대운동장_법학관",new ResultData(2,0.133,12));
@@ -228,33 +231,33 @@ public class Repository {
 //        sSrcToDestMap.put("대운동장_학술문화관",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("대운동장_혜화관",new ResultData(3,0.1995,18));
 //
-//        sSrcToDestMap.put("동대입구_경영관",new ResultData(8,0.532,47));
-//        sSrcToDestMap.put("동대입구_과학관",new ResultData(11,0.7315,65));
-//        sSrcToDestMap.put("동대입구_대운동장",new ResultData(8,0.532,47));
-//        sSrcToDestMap.put("동대입구_동대입구",new ResultData(0,0,0));
-//        sSrcToDestMap.put("동대입구_만해광장",new ResultData(14,0.931,83));
-//        sSrcToDestMap.put("동대입구_명진관",new ResultData(11,0.7315,65));
-//        sSrcToDestMap.put("동대입구_법학관",new ResultData(11,0.7315,65));
-//        sSrcToDestMap.put("동대입구_본관",new ResultData(13,0.8645,77));
-//        sSrcToDestMap.put("동대입구_사회과학관",new ResultData(5,0.3325,30));
-//        sSrcToDestMap.put("동대입구_상록원",new ResultData(35,2.3275,207));
-//        sSrcToDestMap.put("동대입구_신공학관",new ResultData(14,0.931,83));
-//        sSrcToDestMap.put("동대입구_원흥관",new ResultData(19,1.2635,112));
-//        sSrcToDestMap.put("동대입구_정보문화관",new ResultData(13,0.8645,77));
-//        sSrcToDestMap.put("동대입구_중앙도서관",new ResultData(13,0.8645,77));
-//        sSrcToDestMap.put("동대입구_쪽문",new ResultData(20,1.33,118));
-//        sSrcToDestMap.put("동대입구_충무로역",new ResultData(22,1.463,130));
-//        sSrcToDestMap.put("동대입구_팔정도",new ResultData(11,0.7315,65));
-//        sSrcToDestMap.put("동대입구_학림관",new ResultData(12,0.798,71));
-//        sSrcToDestMap.put("동대입구_학생회관",new ResultData(13,0.8645,77));
-//        sSrcToDestMap.put("동대입구_학술문화관",new ResultData(6,0.399,35));
-//        sSrcToDestMap.put("동대입구_혜화관",new ResultData(6,0.399,35));
-//        sSrcToDestMap.put("동대입구_후문",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("동대입구역_경영관",new ResultData(8,0.532,47));
+//        sSrcToDestMap.put("동대입구역_과학관",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("동대입구역_대운동장",new ResultData(8,0.532,47));
+//        sSrcToDestMap.put("동대입구역_동대입구역",new ResultData(0,0,0));
+//        sSrcToDestMap.put("동대입구역_만해광장",new ResultData(14,0.931,83));
+//        sSrcToDestMap.put("동대입구역_명진관",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("동대입구역_법학관",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("동대입구역_본관",new ResultData(13,0.8645,77));
+//        sSrcToDestMap.put("동대입구역_사회과학관",new ResultData(5,0.3325,30));
+//        sSrcToDestMap.put("동대입구역_상록원",new ResultData(35,2.3275,207));
+//        sSrcToDestMap.put("동대입구역_신공학관",new ResultData(14,0.931,83));
+//        sSrcToDestMap.put("동대입구역_원흥관",new ResultData(19,1.2635,112));
+//        sSrcToDestMap.put("동대입구역_정보문화관",new ResultData(13,0.8645,77));
+//        sSrcToDestMap.put("동대입구역_중앙도서관",new ResultData(13,0.8645,77));
+//        sSrcToDestMap.put("동대입구역_쪽문",new ResultData(20,1.33,118));
+//        sSrcToDestMap.put("동대입구역_충무로역",new ResultData(22,1.463,130));
+//        sSrcToDestMap.put("동대입구역_팔정도",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("동대입구역_학림관",new ResultData(12,0.798,71));
+//        sSrcToDestMap.put("동대입구역_학생회관",new ResultData(13,0.8645,77));
+//        sSrcToDestMap.put("동대입구역_학술문화관",new ResultData(6,0.399,35));
+//        sSrcToDestMap.put("동대입구역_혜화관",new ResultData(6,0.399,35));
+//        sSrcToDestMap.put("동대입구역_후문",new ResultData(11,0.7315,65));
 //
 //        sSrcToDestMap.put("만해광장_경영관",new ResultData(9,0.5985,53));
 //        sSrcToDestMap.put("만해광장_과학관",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("만해광장_대운동장",new ResultData(6,0.399,35));
-//        sSrcToDestMap.put("만해광장_동대입구",new ResultData(14,0.931,83));
+//        sSrcToDestMap.put("만해광장_동대입구역",new ResultData(14,0.931,83));
 //        sSrcToDestMap.put("만해광장_만해광장",new ResultData(0,0,0));
 //        sSrcToDestMap.put("만해광장_명진관",new ResultData(3,0.1995,18));
 //        sSrcToDestMap.put("만해광장_법학관",new ResultData(4,0.266,23));
@@ -276,7 +279,7 @@ public class Repository {
 //        sSrcToDestMap.put("명진관_경영관",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("명진관_과학관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("명진관_대운동장",new ResultData(2,0.133,12));
-//        sSrcToDestMap.put("명진관_동대입구",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("명진관_동대입구역",new ResultData(11,0.7315,65));
 //        sSrcToDestMap.put("명진관_만해광장",new ResultData(3,0.1995,18));
 //        sSrcToDestMap.put("명진관_명진관",new ResultData(0,0,0));
 //        sSrcToDestMap.put("명진관_법학관",new ResultData(1,0.0665,6));
@@ -299,7 +302,7 @@ public class Repository {
 //        sSrcToDestMap.put("법학관_경영관",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("법학관_과학관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("법학관_대운동장",new ResultData(2,0.133,12));
-//        sSrcToDestMap.put("법학관_동대입구",new ResultData(11,0.7315,65));
+//        sSrcToDestMap.put("법학관_동대입구역",new ResultData(11,0.7315,65));
 //        sSrcToDestMap.put("법학관_만해광장",new ResultData(4,0.266,23));
 //        sSrcToDestMap.put("법학관_명진관",new ResultData(1,0.0665,6));
 //        sSrcToDestMap.put("법학관_법학관",new ResultData(0,0,0));
@@ -322,7 +325,7 @@ public class Repository {
 //        sSrcToDestMap.put("본관_경영관",new ResultData(7,0.4655,41));
 //        sSrcToDestMap.put("본관_과학관",new ResultData(3,0.1995,18));
 //        sSrcToDestMap.put("본관_대운동장",new ResultData(4,0.266,23));
-//        sSrcToDestMap.put("본관_동대입구",new ResultData(13,0.8645,77));
+//        sSrcToDestMap.put("본관_동대입구역",new ResultData(13,0.8645,77));
 //        sSrcToDestMap.put("본관_만해광장",new ResultData(1,0.0665,6));
 //        sSrcToDestMap.put("본관_명진관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("본관_법학관",new ResultData(3,0.1995,18));
@@ -345,7 +348,7 @@ public class Repository {
 //        sSrcToDestMap.put("사회과학관_경영관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("사회과학관_과학관",new ResultData(6,0.399,35));
 //        sSrcToDestMap.put("사회과학관_대운동장",new ResultData(3,0.1995,18));
-//        sSrcToDestMap.put("사회과학관_동대입구",new ResultData(5,0.3325,30));
+//        sSrcToDestMap.put("사회과학관_동대입구역",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("사회과학관_만해광장",new ResultData(9,0.5985,53));
 //        sSrcToDestMap.put("사회과학관_명진관",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("사회과학관_법학관",new ResultData(5,0.3325,30));
@@ -367,7 +370,7 @@ public class Repository {
 //        sSrcToDestMap.put("상록원_경영관",new ResultData(8,0.532,47));
 //        sSrcToDestMap.put("상록원_과학관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("상록원_대운동장",new ResultData(5,0.3325,30));
-//        sSrcToDestMap.put("상록원_동대입구",new ResultData(35,2.3275,207));
+//        sSrcToDestMap.put("상록원_동대입구역",new ResultData(35,2.3275,207));
 //        sSrcToDestMap.put("상록원_만해광장",new ResultData(5,0.3325,30));
 //        sSrcToDestMap.put("상록원_명진관",new ResultData(2,0.133,12));
 //        sSrcToDestMap.put("상록원_법학관",new ResultData(4,0.266,23));
@@ -386,5 +389,7 @@ public class Repository {
 //        sSrcToDestMap.put("상록원_학술문화관",new ResultData(10,0.665,59));
 //        sSrcToDestMap.put("상록원_혜화관",new ResultData(7,0.4655,41));
 //        sSrcToDestMap.put("상록원_후문",new ResultData(8,0.532,47));
+
+
     }
 }
